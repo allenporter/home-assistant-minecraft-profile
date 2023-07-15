@@ -3,10 +3,10 @@
     "name": "Minecraft Profile",
     "config_flow": true,
     "documentation": "https://github.com/allenporter/homeassistant-minecraft-profiler",
-    "requirements": [],  // "ical==4.1.1"
+    "requirements": [],
     "codeowners": ["@allenporter"],
     "iot_class": "cloud_polling",
-    "loggers": [],  // "ical"
+    "loggers": [],
     "version": "0.0.1",
     "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues"
   }

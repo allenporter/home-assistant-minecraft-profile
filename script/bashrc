@@ -1,0 +1,1 @@
+ln -s /data/homeassistant/config/custom_components/ /workspaces/homeassistant-minecraft-profile/custom_components/

@@ -4,4 +4,7 @@
 		"context": "..",
 		"dockerfile": "../Dockerfile"
 	},
+	"mounts": [
+		"source=${localWorkspaceFolder}/config/,target=/data/homeassistant/config,type=bind,consistency=cached",
+	],
 }
