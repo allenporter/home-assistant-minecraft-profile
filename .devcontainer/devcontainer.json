@@ -1,0 +1,7 @@
+{
+	"name": "Home Assistant Custom Component Env",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+}
