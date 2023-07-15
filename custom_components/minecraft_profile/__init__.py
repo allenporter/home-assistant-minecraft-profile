@@ -18,15 +18,11 @@ from .const import DOMAIN
 PLATFORMS: list[Platform] = []
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
-    """Set up integration."""
-    return True
-
-
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up integration from a config entry."""
     hass.data.setdefault(DOMAIN, {})
-    hass.config_entries.async_setup_platforms(entry, PLATFORMS)
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    hass.data[DOMAIN][entry.entry_id] = entry
 
     return True
 

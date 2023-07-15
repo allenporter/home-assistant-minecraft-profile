@@ -1,12 +1,14 @@
 {
-    "domain": "minecraft_profile",
-    "name": "Minecraft Profile",
-    "config_flow": true,
-    "documentation": "https://github.com/allenporter/homeassistant-minecraft-profiler",
-    "requirements": [],
-    "codeowners": ["@allenporter"],
-    "iot_class": "cloud_polling",
-    "loggers": [],
-    "version": "0.0.1",
-    "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues"
-  }
+  "codeowners": [
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/allenporter/homeassistant-minecraft-profiler",
+  "domain": "minecraft_profile",
+  "iot_class": "cloud_polling",
+  "loggers": [],
+  "name": "Minecraft Profile",
+  "requirements": [],
+  "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues",
+  "version": "0.0.1"
+}

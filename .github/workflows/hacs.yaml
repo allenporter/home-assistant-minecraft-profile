@@ -1,5 +1,5 @@
 ---
-name: Validate
+name: hacs 
 
 on:
   push:

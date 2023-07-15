@@ -1,4 +1,4 @@
-"""Test the Local Calendar config flow."""
+"""Test the integration config flow."""
 from unittest.mock import patch
 
 from homeassistant import config_entries
