@@ -1,13 +1,13 @@
 {
+  "domain": "minecraft_profile",
+  "name": "Minecraft Profile",
   "codeowners": [
     "@allenporter"
   ],
   "config_flow": true,
   "documentation": "https://github.com/allenporter/homeassistant-minecraft-profiler",
-  "domain": "minecraft_profile",
   "iot_class": "cloud_polling",
   "loggers": [],
-  "name": "Minecraft Profile",
   "requirements": [],
   "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues",
   "version": "0.0.1"

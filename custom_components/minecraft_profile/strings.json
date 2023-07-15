@@ -1,0 +1,12 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "description": "Please enter the minecraft profile name",
+          "data": {
+            "calendar_name": "Profile Name"
+          }
+        }
+      }
+    }
+  }
