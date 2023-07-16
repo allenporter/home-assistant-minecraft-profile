@@ -1,4 +1,4 @@
-mypy==4.7.1
+mypy==1.4.1
 pre-commit==3.3.3
 pytest-homeassistant-custom-component==0.13.44
 ruff==0.0.273
