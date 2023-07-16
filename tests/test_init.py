@@ -1,14 +1,12 @@
 """Test for integration init."""
-from unittest.mock import patch
 import pytest
+from typing import Any
 
-from homeassistant import config_entries
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.core import HomeAssistant
-from homeassistant.data_entry_flow import FlowResultType
 from homeassistant.setup import async_setup_component
 
-from custom_components.minecraft_profile.const import CONF_NAME, DOMAIN
+from custom_components.minecraft_profile.const import DOMAIN
 
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
@@ -21,16 +19,18 @@ def mock_config_entry() -> MockConfigEntry:
 
 @pytest.fixture(name="_setup_integration")
 async def setup_integration(
-    hass: HomeAssistant, config_entry: MockConfigEntry, enable_custom_integrations
+    hass: HomeAssistant,
+    config_entry: MockConfigEntry,
 ) -> None:
     """Set up the integration."""
-    _ = enable_custom_integrations
     config_entry.add_to_hass(hass)
     assert await async_setup_component(hass, DOMAIN, {})
     await hass.async_block_till_done()
 
 
-async def test_init(hass, _setup_integration, config_entry: MockConfigEntry):
+async def test_init(
+    hass: HomeAssistant, _setup_integration: Any, config_entry: MockConfigEntry
+) -> None:
     """Test loading the integration."""
 
     assert config_entry.state is ConfigEntryState.LOADED
