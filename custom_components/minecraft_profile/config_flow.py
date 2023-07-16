@@ -7,12 +7,13 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.data_entry_flow import FlowResult
 
-from .const import DOMAIN, CONF_NAME
+from .const import DOMAIN, CONF_NAME, CONF_HYPIXEL_API_KEY
 
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_NAME): str,
+        vol.Optional(CONF_HYPIXEL_API_KEY): str,
     }
 )
 

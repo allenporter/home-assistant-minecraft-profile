@@ -10,7 +10,10 @@ from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 
 async def test_init(
-    hass: HomeAssistant, _setup_integration: Any, config_entry: MockConfigEntry
+    hass: HomeAssistant,
+    _setup_api: None,
+    _setup_integration: Any,
+    config_entry: MockConfigEntry,
 ) -> None:
     """Test loading the integration."""
 

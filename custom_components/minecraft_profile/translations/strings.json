@@ -1,0 +1,29 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "description": "Please enter the minecraft profile name. You may optionally enter a hypixel API key to collect additional stats",
+          "data": {
+            "name": "Profile Name",
+            "hypixel_api_key": "Hypixel API Key"
+          }
+        }
+      }
+    },
+    "entity": {
+      "sensor": {
+        "online": {
+          "name": "Hypixel"
+        },
+        "game_type": {
+          "name": "Hypixel Game type"
+        },
+        "mode": {
+          "name": "Hypixel Mode"
+        },
+        "map": {
+          "name": "Hypixel Map"
+        }
+      }
+    }
+  }
