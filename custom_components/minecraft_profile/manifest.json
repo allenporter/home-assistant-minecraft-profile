@@ -7,8 +7,8 @@
   "config_flow": true,
   "documentation": "https://github.com/allenporter/homeassistant-minecraft-profiler",
   "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues",
   "loggers": [],
   "requirements": [],
-  "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues",
   "version": "0.0.1"
 }
