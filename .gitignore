@@ -154,4 +154,5 @@ cython_debug/
 
 
 # Home assistant config for Dev Container
-.config
+config
+.vscode

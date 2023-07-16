@@ -24,14 +24,28 @@ RUN apt-get install -y \
     build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev \
     ffmpeg liblapack3 liblapack-dev libatlas-base-dev
 
-RUN mkdir -p /data/homeassistant/config
+# Setup non-root user
+ARG USERNAME=homeassistant
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
 
-# Will handle setup post container
-COPY script/bashrc ~/.bashrc
+# Create the user
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
-COPY requirements.txt /src/
-RUN pip3 install -r /src/requirements.txt
-COPY requirements_container.txt /src/
-RUN pip3 install -r /src/requirements_container.txt
+USER $USERNAME
+
+# Create venv
+ENV VENV=/home/${USERNAME}/venv
+RUN python3 -m venv ${VENV}
+ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
+
+# Install packages for local development and home assistant
+COPY --chown=${USER_UID}:${USER_GID} requirements.txt /home/${USERNAME}/
+RUN pip install -r /home/${USERNAME}/requirements.txt
 
 SHELL ["/bin/bash", "-c"]

@@ -1,10 +1,11 @@
 {
-	"name": "Home Assistant Custom Component Env",
-	"build": {
-		"context": "..",
-		"dockerfile": "../Dockerfile"
-	},
-	"mounts": [
-		"source=${localWorkspaceFolder}/config/,target=/data/homeassistant/config,type=bind,consistency=cached",
-	],
+    "name": "Home Assistant Custom Component Env",
+    "build": {
+        "context": "..",
+        "dockerfile": "../Dockerfile"
+    },
+    "remoteUser": "homeassistant",
+    "mounts": [
+        "source=${localWorkspaceFolder}/script/bashrc,target=/home/homeassistant/.bashrc,type=bind,consistency=cached"
+    ]
 }
