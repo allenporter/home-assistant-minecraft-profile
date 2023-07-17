@@ -10,7 +10,6 @@ from io import BytesIO
 from homeassistant.components.image import ImageEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.util import dt as dt_util
 from homeassistant.helpers.update_coordinator import (
@@ -18,7 +17,7 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from .const import DOMAIN
-from .coordinator import ProfileCoordinator
+from .coordinator import ProfileCoordinator, device_info
 from .model import Profile
 
 _LOGGER = logging.getLogger(__name__)
@@ -50,10 +49,7 @@ class Skin(CoordinatorEntity[Profile], ImageEntity):
         ImageEntity.__init__(self, hass, verify_ssl=False)
         self._attr_unique_id = coordinator.data.player.uuid
         self._attr_name = None
-        self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, coordinator.data.player.uuid)},
-            name=coordinator.data.player.name,
-        )
+        self._attr_device_info = device_info(coordinator.data.player)
         self._attr_image_last_updated = dt_util.utcnow()
 
     @callback

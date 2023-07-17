@@ -17,7 +17,7 @@ def mock_platforms() -> list[Platform]:
 
 
 @pytest.mark.freeze_time("2023-04-01 00:00:00+00:00")
-async def test_fetch_skin(
+async def test_skin(
     hass: HomeAssistant,
     hass_client: ClientSessionGenerator,
     _setup_api: None,

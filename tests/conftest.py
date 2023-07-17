@@ -41,8 +41,7 @@ HYPIXEL_STATUS = {
     "uuid": PROFILE_ID,
     "session": {
         "online": True,
-        "gameType": "some-game-type",
-        "mode": "some-mode",
+        "gameType": "SKYWARS",
         "map": "some-map",
     },
 }

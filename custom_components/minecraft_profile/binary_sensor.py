@@ -1,21 +1,19 @@
-"""Sensor platform for minecraft profile."""
+"""Binary sensor platform for minecraft profile."""
 
 from __future__ import annotations
 
 import logging
 import datetime
-import dataclasses
 
 from minepi import Player
 
-from homeassistant.components.sensor import (
-    SensorEntity,
-    SensorEntityDescription,
-    SensorDeviceClass,
+from homeassistant.components.binary_sensor import (
+    BinarySensorEntity,
+    BinarySensorEntityDescription,
+    BinarySensorDeviceClass,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -26,54 +24,12 @@ _LOGGER = logging.getLogger(__name__)
 
 
 UPDATE_INTERAL = datetime.timedelta(minutes=30)
-GAME_TYPES = [
-    "",
-    "QUAKECRAFT",
-    "WALLS",
-    "PAINTBALL",
-    "SURVIVAL_GAMES",
-    "TNTGAMES",
-    "VAMPIREZ",
-    "WALLS3",
-    "ARCADE",
-    "ARENA",
-    "UHC",
-    "MCGO",
-    "BATTLEGROUND",
-    "SUPER_SMASH",
-    "GINGERBREAD",
-    "HOUSING",
-    "SKYWARS",
-    "TRUE_COMBAT",
-    "SPEED_UHC",
-    "SKYCLASH",
-    "LEGACY",
-    "PROTOTYPE",
-    "BEDWARS",
-    "MURDER_MYSTERY",
-    "BUILD_BATTLE",
-    "DUELS",
-    "SKYBLOCK",
-    "PIT",
-    "REPLAY",
-    "SMP",
-    "WOOL_GAMES",
-]
-
-SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
-    SensorEntityDescription(
-        key="game_type",
-        name="Hypixel game type",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        icon="mdi:controller-classic",
-        device_class=SensorDeviceClass.ENUM,
-        options=GAME_TYPES,
-    ),
-    SensorEntityDescription(
-        key="map",
-        name="Hypixel map",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        icon="mdi:map",
+SENSOR_TYPES: tuple[BinarySensorEntityDescription, ...] = (
+    BinarySensorEntityDescription(
+        key="online",
+        name="Hypixel",
+        device_class=BinarySensorDeviceClass.CONNECTIVITY,
+        icon="mdi:account-badge",
     ),
 )
 
@@ -89,7 +45,7 @@ async def async_setup_entry(
         return
 
     async_add_entities(
-        MinecraftSensor(
+        MinecraftBinarySensor(
             hass=hass,
             player=coordinator.data.player,
             description=description,
@@ -99,17 +55,17 @@ async def async_setup_entry(
     )
 
 
-class MinecraftSensor(CoordinatorEntity[ProfileCoordinator], SensorEntity):
-    """Minecraft sensor entity."""
+class MinecraftBinarySensor(CoordinatorEntity[ProfileCoordinator], BinarySensorEntity):
+    """Minecraft binary sensor entity."""
 
-    entity_description: SensorEntityDescription
+    entity_description: BinarySensorEntityDescription
     _attr_has_entity_name = True
 
     def __init__(
         self,
         hass: HomeAssistant,
         player: Player,
-        description: SensorEntityDescription,
+        description: BinarySensorEntityDescription,
         coordinator: ProfileCoordinator,
     ) -> None:
         """Initialize MinecraftSensor."""
@@ -122,9 +78,7 @@ class MinecraftSensor(CoordinatorEntity[ProfileCoordinator], SensorEntity):
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
-        data = dataclasses.asdict(self.coordinator.data)
-        self._attr_native_value = data[self.entity_description.key]
-        self.async_write_ha_state()
+        self._attr_is_on = self.coordinator.data.online
 
     async def async_added_to_hass(self) -> None:
         """When entity is added to hass."""

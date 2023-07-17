@@ -9,7 +9,7 @@ from .const import DOMAIN, CONF_NAME, CONF_HYPIXEL_API_KEY
 from .coordinator import ProfileCoordinator
 
 
-PLATFORMS: list[Platform] = [Platform.IMAGE, Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.IMAGE, Platform.SENSOR, Platform.BINARY_SENSOR]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

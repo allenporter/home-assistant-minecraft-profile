@@ -17,10 +17,12 @@ from minepi import Player
 
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed
+from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 from .model import Profile, HypixelSession
+from .const import DOMAIN
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -31,6 +33,14 @@ API_KEY_HEADER = "API-Key"
 TIMEOUT = 10.0
 STATUS_API = "https://api.hypixel.net/status"
 UUID = "uuid"
+
+
+def device_info(player: Player) -> DeviceInfo:
+    """Create DeviceInfo for a player."""
+    return DeviceInfo(
+        identifiers={(DOMAIN, player.uuid)},
+        name=f"{player.name}",
+    )
 
 
 class ProfileCoordinator(DataUpdateCoordinator[Profile]):  # type: ignore[misc]

@@ -1,0 +1,59 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "description": "Please enter the minecraft profile name. You may optionally enter a hypixel API key to collect additional stats",
+          "data": {
+            "name": "Profile Name",
+            "hypixel_api_key": "Hypixel API Key"
+          }
+        }
+      }
+    },
+    "entity": {
+      "sensor": {
+        "online": {
+          "name": "Hypixel"
+        },
+        "game_type": {
+          "name": "Hypixel Game type",
+          "state": {
+            "": "N/A",
+            "QUAKECRAFT": "Quake",
+            "WALLS": "Walls",
+            "PAINTBALL": "Paintball",
+            "SURVIVAL_GAMES": "HungerGames",
+            "TNTGAMES": "TNTGames",
+            "VAMPIREZ": "VampireZ",
+            "WALLS3": "Walls3",
+            "ARCADE": "Arcade",
+            "ARENA": "Arena",
+            "UHC": "UHC",
+            "MCGO": "MCGO",
+            "BATTLEGROUND": "Battleground",
+            "SUPER_SMASH": "SuperSmash",
+            "GINGERBREAD": "GingerBread",
+            "HOUSING": "Housing",
+            "SKYWARS": "SkyWars",
+            "TRUE_COMBAT": "TrueCombat",
+            "SPEED_UHC": "SpeedUHC",
+            "SKYCLASH": "SkyClash",
+            "LEGACY": "Legacy",
+            "PROTOTYPE": "Prototype",
+            "BEDWARS": "Bedwars",
+            "MURDER_MYSTERY": "MurderMystery",
+            "BUILD_BATTLE": "BuildBattle",
+            "DUELS": "Duels",
+            "SKYBLOCK": "SkyBlock",
+            "PIT": "Pit",
+            "REPLAY": "Replay",
+            "SMP": "SMP",
+            "WOOL_GAMES": "WoolGames"
+          }
+        },
+        "map": {
+          "name": "Hypixel Map"
+        }
+      }
+    }
+  }
