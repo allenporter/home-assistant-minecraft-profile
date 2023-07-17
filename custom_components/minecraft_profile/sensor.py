@@ -27,7 +27,7 @@ _LOGGER = logging.getLogger(__name__)
 
 UPDATE_INTERAL = datetime.timedelta(minutes=30)
 GAME_TYPES = [
-    "",
+    "UNKNOWN",
     "QUAKECRAFT",
     "WALLS",
     "PAINTBALL",

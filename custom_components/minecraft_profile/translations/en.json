@@ -18,7 +18,7 @@
         "game_type": {
           "name": "Hypixel Game type",
           "state": {
-            "": "N/A",
+            "UNKNOWN": "Not Available",
             "QUAKECRAFT": "Quake",
             "WALLS": "Walls",
             "PAINTBALL": "Paintball",

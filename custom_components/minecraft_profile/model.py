@@ -24,5 +24,4 @@ class HypixelSession:
 
     online: bool
     game_type: str
-    mode: str
     map: str
