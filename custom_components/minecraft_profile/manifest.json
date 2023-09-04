@@ -5,10 +5,10 @@
     "@allenporter"
   ],
   "config_flow": true,
-  "documentation": "https://github.com/allenporter/homeassistant-minecraft-profiler",
+  "documentation": "https://github.com/allenporter/homeassistant-minecraft-profile",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/allenporter/homeassistant-minecraft-profile/issues",
   "loggers": [],
-  "requirements": [],
+  "requirements": ["MinePI==0.5.0"],
   "version": "1.0.0"
 }
