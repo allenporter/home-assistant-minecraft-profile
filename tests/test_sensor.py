@@ -32,7 +32,7 @@ async def test_sensor(
     hass.states.async_entity_ids()
 
     state = hass.states.get("sensor.some_profile_name_hypixel_game_type")
-    assert state.state == "SKYWARS"
+    assert state.state == "skywars"
 
     state = hass.states.get("sensor.some_profile_name_hypixel_map")
     assert state.state == "some-map"

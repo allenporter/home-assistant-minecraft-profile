@@ -131,6 +131,6 @@ class HypixelProfileCoordinator(
         session = result.get("session", {})
         return HypixelSession(
             online=session.get("online", False),
-            game_type=session.get("gameType", "UNKNOWN"),
+            game_type=session.get("gameType", "UNKNOWN").lower(),
             map=session.get("map", ""),
         )

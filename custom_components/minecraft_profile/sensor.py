@@ -67,7 +67,7 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:controller-classic",
         device_class=SensorDeviceClass.ENUM,
-        options=GAME_TYPES,
+        options=[gt.lower() for gt in GAME_TYPES],
     ),
     SensorEntityDescription(
         key="map",
