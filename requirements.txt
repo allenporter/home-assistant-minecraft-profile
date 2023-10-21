@@ -3,3 +3,4 @@ pre-commit==3.3.3
 pytest-homeassistant-custom-component==0.13.44
 ruff==0.0.273
 aiohttp_cors==0.7.0
+MinePI==0.5.0
