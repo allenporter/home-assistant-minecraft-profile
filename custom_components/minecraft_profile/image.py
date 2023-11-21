@@ -9,6 +9,7 @@ from io import BytesIO
 
 from homeassistant.components.image import ImageEntity
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.util import dt as dt_util
@@ -43,6 +44,7 @@ class Skin(CoordinatorEntity[Profile], ImageEntity):
     _attr_has_entity_name = True
     _attr_content_type = "image/x-png"
     _attr_icon = "mdi:minecraft"
+    _attr_entity_category = EntityCategory.DIAGNOSTIC
 
     def __init__(self, hass: HomeAssistant, coordinator: ProfileCoordinator) -> None:
         super().__init__(coordinator)
