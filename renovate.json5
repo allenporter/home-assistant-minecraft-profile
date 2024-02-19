@@ -19,7 +19,22 @@
       "automerge": true,
       "automergeType": "branch",
       "matchUpdateTypes": ["minor", "patch"]
-    }
+    },
+    {
+      "description": "Development requirements: minor updates are silent",
+      "matchFiles": ["requirements.txt", "Dockerfile"],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["minor", "patch"],
+    },
+    {
+      "description": "Development requirements: updated weekly",
+      "matchFiles": ["requirements.txt", "Dockerfile"],
+      "extends": ["schedule:weekends"],
+      "automerge": true,
+      "stabilityDays": 1,
+      "matchUpdateTypes": ["major"],
+    },
   ],
   "pre-commit": {
     "enabled": true
