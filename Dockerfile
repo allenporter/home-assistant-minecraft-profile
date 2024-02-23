@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20230308
+FROM ubuntu:jammy-20240212
 
 RUN apt-get update --fix-missing && \
     apt-get upgrade -y && \
