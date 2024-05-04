@@ -1,6 +1,6 @@
 mypy==1.10.0
 pre-commit==3.7.0
-pytest-homeassistant-custom-component==0.13.120
+pytest-homeassistant-custom-component==0.13.121
 ruff==0.4.3
 aiohttp_cors==0.7.0
 MinePI==0.5.0
