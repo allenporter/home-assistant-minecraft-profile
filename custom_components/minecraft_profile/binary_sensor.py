@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 import datetime
 
+
 from minepi import Player
 
 from homeassistant.components.binary_sensor import (
@@ -17,7 +18,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .coordinator import ProfileCoordinator, device_info, HypixelProfileCoordinator
+from .coordinator import device_info, HypixelProfileCoordinator
 from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
@@ -55,7 +56,9 @@ async def async_setup_entry(
     )
 
 
-class MinecraftBinarySensor(CoordinatorEntity[ProfileCoordinator], BinarySensorEntity):
+class MinecraftBinarySensor(
+    CoordinatorEntity[HypixelProfileCoordinator], BinarySensorEntity
+):
     """Minecraft binary sensor entity."""
 
     entity_description: BinarySensorEntityDescription

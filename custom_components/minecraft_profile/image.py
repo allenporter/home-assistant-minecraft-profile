@@ -15,6 +15,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.util import dt as dt_util
 from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
+    DataUpdateCoordinator,
 )
 
 from .const import DOMAIN
@@ -38,7 +39,7 @@ async def async_setup_entry(
     async_add_entities([Skin(hass, coordinator)], True)
 
 
-class Skin(CoordinatorEntity[Profile], ImageEntity):
+class Skin(CoordinatorEntity[DataUpdateCoordinator[Profile]], ImageEntity):
     """Minecraft profile skin."""
 
     _attr_has_entity_name = True

@@ -17,7 +17,7 @@ from minepi import Player
 
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed
-from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
@@ -43,7 +43,7 @@ def device_info(player: Player) -> DeviceInfo:
     )
 
 
-class ProfileCoordinator(DataUpdateCoordinator[Profile]):  # type: ignore[misc]
+class ProfileCoordinator(DataUpdateCoordinator[Profile]):
     """Minecraft Profile coordinator."""
 
     data: Profile
@@ -82,9 +82,7 @@ class ProfileCoordinator(DataUpdateCoordinator[Profile]):  # type: ignore[misc]
         return self._hypixel_coordinator
 
 
-class HypixelProfileCoordinator(
-    DataUpdateCoordinator[HypixelSession]  # type: ignore[misc]
-):
+class HypixelProfileCoordinator(DataUpdateCoordinator[HypixelSession]):
     """Minecraft Hypixel profile coordinator."""
 
     data: HypixelSession
