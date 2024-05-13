@@ -17,7 +17,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .coordinator import ProfileCoordinator, device_info
+from .coordinator import ProfileCoordinator, device_info, HypixelProfileCoordinator
 from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
@@ -66,7 +66,7 @@ class MinecraftBinarySensor(CoordinatorEntity[ProfileCoordinator], BinarySensorE
         hass: HomeAssistant,
         player: Player,
         description: BinarySensorEntityDescription,
-        coordinator: ProfileCoordinator,
+        coordinator: HypixelProfileCoordinator,
     ) -> None:
         """Initialize MinecraftSensor."""
         super().__init__(coordinator)
