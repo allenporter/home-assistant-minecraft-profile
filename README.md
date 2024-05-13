@@ -1,4 +1,4 @@
-# homeassistant-minecraft-profile
+# home-assistant-minecraft-profile
 
 Home Assistant Custom Component for displaying minecraft profile information
 and skins. It also supports pulling information from Hypixel.

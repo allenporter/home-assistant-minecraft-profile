@@ -1,4 +1,5 @@
 {
+    "title": "Minecraft Profile",
     "config": {
       "step": {
         "user": {
@@ -56,4 +57,4 @@
         }
       }
     }
-  }
+}

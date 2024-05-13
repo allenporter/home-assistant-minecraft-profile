@@ -1,5 +1,5 @@
 ---
-name: hacs 
+name: hacs
 
 on:
   push:
@@ -11,8 +11,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: HACS validation
-      uses: hacs/action@main
-      with:
-        category: "integration"
+      - uses: actions/checkout@v4
+      - name: HACS validation
+        uses: hacs/action@main
+        with:
+          category: "integration"

@@ -1,4 +1,4 @@
-"""Constants for the Minecraft Profile integration."""
+"""Constants for minecraft_profile."""
 
 DOMAIN = "minecraft_profile"
 CONF_NAME = "name"
