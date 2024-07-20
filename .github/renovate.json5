@@ -13,7 +13,7 @@
     }
   ],
   "pip_requirements": {
-    "fileMatch": ["requirements_dev.txt"]
+    "fileMatch": ["(^|/)[\w-]*requirements([-_.]\w+)?\.(txt|pip)$"]
   },
   "pre-commit": {"enabled": true}
 }
