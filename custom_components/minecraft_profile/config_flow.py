@@ -29,8 +29,8 @@ class MinecraftProfileConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> config_entries.ConfigFlowResult:
         """Handle the initial step."""
         if user_input is None:
-            return self.async_show_form(
+            return self.async_show_form(  # type: ignore[no-any-return]
                 step_id="user", data_schema=STEP_USER_DATA_SCHEMA
             )
 
-        return self.async_create_entry(title=user_input[CONF_NAME], data=user_input)
+        return self.async_create_entry(title=user_input[CONF_NAME], data=user_input)  # type: ignore[no-any-return]
