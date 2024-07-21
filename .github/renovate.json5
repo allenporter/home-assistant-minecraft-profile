@@ -12,13 +12,6 @@
       "matchUpdateTypes": ["minor", "patch"]
     }
   ],
-  "enabledManagers": [
-    "devcontainer",
-    "dockerfile",
-    "github-actions",
-    "pre-commit",
-    "pip_requirements",
-  ],
   "pip_requirements": {
     "fileMatch": ["requirements_dev.txt"]
   },
