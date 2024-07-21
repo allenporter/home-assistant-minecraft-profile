@@ -18,7 +18,7 @@
     "github-actions",
     "pre-commit",
     "pip_requirements",
-  ]
+  ],
   "pip_requirements": {
     "fileMatch": ["(^|/)[\w-]*requirements([-_.]\w+)?\.(txt|pip)$"]
   },
