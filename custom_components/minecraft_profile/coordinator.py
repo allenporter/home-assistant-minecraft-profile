@@ -103,10 +103,7 @@ class HypixelProfileCoordinator(DataUpdateCoordinator[HypixelSession]):
         )
         self._session = session
         self._player = player
-        if api_key:
-            self._headers = {API_KEY_HEADER: api_key}
-        else:
-            self._headers: dict[str, str] = {}
+        self._headers: dict[str, str] = {API_KEY_HEADER: api_key} if api_key else {}
 
     async def _async_update_data(self) -> HypixelSession:
         """Fetch data from API endpoint."""
